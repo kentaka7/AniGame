@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  AniGame
 //
-//  Created by takakura naohiro on 2016/10/30.
-//  Copyright © 2016年 Makiclub. All rights reserved.
+//  Created by takakura naohiro on 2017/05/18.
+//  Copyright © 2017年 GeoMagnet. All rights reserved.
 //
 
 import UIKit
@@ -18,8 +18,6 @@ import TwitterKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         //プッシュ通知形式などを登録
@@ -27,9 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerUserNotificationSettings(notificationSetting)
         application.registerForRemoteNotifications()
         
-        FIRApp.configure() //Firebaseとコネクト
+        FirebaseApp.configure() //Firebaseとコネクト
         //Fabric.with([Twitter.self])
-        FIRDatabase.database().persistenceEnabled = true //ローカルにデータベースを構築する設定
+        Database.database().isPersistenceEnabled = true //ローカルにデータベースを構築する設定
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
@@ -48,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //    tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
         }
         
-        FIRInstanceID.instanceID().setAPNSToken(deviceToken as Data, type: FIRInstanceIDAPNSTokenType.unknown)
+        InstanceID.instanceID().setAPNSToken(deviceToken as Data, type: InstanceIDAPNSTokenType.unknown)
     }
     
     

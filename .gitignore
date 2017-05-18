@@ -114,3 +114,5 @@ Pods/
 Pods
 Podfile.lock
 
+#this app
+GoogleService-Info.plist

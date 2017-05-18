@@ -2,6 +2,9 @@
 //  ProfileViewController.swift
 //  SampleFirebase
 //
+//  Created by takakura naohiro on 2017/05/18.
+//  Copyright © 2017年 GeoMagnet. All rights reserved.
+//
 
 import UIKit
 import FirebaseStorage
@@ -75,7 +78,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     
     func create(uploadImage image: UIImage) {
         let uploadData: Data = UIImagePNGRepresentation(image)!
-        ref.child((Auth.auth().currentUser?.uid)!).put(uploadData, metadata: nil) { (data, error) in
+        ref.child((Auth.auth().currentUser?.uid)!).putData(uploadData, metadata: nil) { (data, error) in
             if error != nil {
                 print("\(error?.localizedDescription)")
             }else {
@@ -86,7 +89,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     
     func read() {
         let gsReference = Storage.storage().reference(forURL: "gs://sampledrud.appspot.com")
-        gsReference.child((Auth.auth().currentUser?.uid)!).data(withMaxSize: 1 * 1028 * 1028) { (data, error) in
+        gsReference.child((Auth.auth().currentUser?.uid)!).getData(maxSize: 1 * 1028 * 1028) { (data, error) in
             if error != nil {
                 print("\(error?.localizedDescription)")
             }else {

@@ -2,8 +2,8 @@
 //  CustomButton.swift
 //  AniGame
 //
-//  Created by takakura naohiro on 2016/11/03.
-//  Copyright © 2016年 Makiclub. All rights reserved.
+//  Created by takakura naohiro on 2017/05/18.
+//  Copyright © 2017年 GeoMagnet. All rights reserved.
 //
 
 import UIKit

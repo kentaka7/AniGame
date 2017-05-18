@@ -2,8 +2,8 @@
 //  ListViewController.swift
 //  SampleFirebase
 //
-//  Created by ShinokiRyosei on 2016/02/27.
-//  Copyright © 2016年 ShinokiRyosei. All rights reserved.
+//  Created by takakura naohiro on 2017/05/18.
+//  Copyright © 2017年 GeoMagnet. All rights reserved.
 //
 
 import UIKit
@@ -13,14 +13,12 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var table: UITableView! //送信したデータを表示するTableView
     
-    var contentArray: [FIRDataSnapshot] = [] //Fetchしたデータを入れておく配列、この配列をTableViewで表示
+    var contentArray: [DataSnapshot] = [] //Fetchしたデータを入れておく配列、この配列をTableViewで表示
     
-    let ref = FIRDatabase.database().reference() //Firebaseのルートを宣言しておく
-    
-    
-    var snap: FIRDataSnapshot!
-    
-    var selectedSnap: FIRDataSnapshot!
+    let ref = Database.database().reference() //Firebaseのルートを宣言しておく
+
+    var snap: DataSnapshot!
+    var selectedSnap: DataSnapshot!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,8 +61,8 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     func read()  {
         //FIRDataEventTypeを.Valueにすることにより、なにかしらの変化があった時に、実行
         //今回は、childでユーザーIDを指定することで、ユーザーが投稿したデータの一つ上のchildまで指定することになる
-        ref.child((FIRAuth.auth()?.currentUser?.uid)!).observe(.value, with: {(snapShots) in
-            if snapShots.children.allObjects is [FIRDataSnapshot] {
+        ref.child((Auth.auth().currentUser?.uid)!).observe(.value, with: {(snapShots) in
+            if snapShots.children.allObjects is [DataSnapshot] {
                 print("snapShots.children...\(snapShots.childrenCount)") //いくつのデータがあるかプリント
                 
                 print("snapShot...\(snapShots)") //読み込んだデータをプリント
@@ -77,24 +75,24 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     //読み込んだデータは最初すべてのデータが一つにまとまっているので、それらを分割して、配列に入れる
-    func reload(snap: FIRDataSnapshot) {
+    func reload(snap: DataSnapshot) {
         if snap.exists() {
             print(snap)
             //FIRDataSnapshotが存在するか確認
             contentArray.removeAll()
             //1つになっているFIRDataSnapshotを分割し、配列に入れる
             for item in snap.children {
-                contentArray.append(item as! FIRDataSnapshot)
+                contentArray.append(item as! DataSnapshot)
             }
             // ローカルのデータベースを更新
-            ref.child((FIRAuth.auth()?.currentUser?.uid)!).keepSynced(true)
+            ref.child((Auth.auth().currentUser?.uid)!).keepSynced(true)
             //テーブルビューをリロード
             table.reloadData()
         }
     }
     
     func delete(deleteIndexPath indexPath: IndexPath) {
-        ref.child((FIRAuth.auth()?.currentUser?.uid)!).child(contentArray[indexPath.row].key).removeValue()
+        ref.child((Auth.auth().currentUser?.uid)!).child(contentArray[indexPath.row].key).removeValue()
         contentArray.remove(at: indexPath.row)
     }
     
@@ -175,7 +173,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         
         //"content"の中に、"MIB"という単語があるかを調べる
-        ref.child((FIRAuth.auth()?.currentUser?.uid)!).queryOrdered(byChild: "content").queryEqual(toValue: "MIB").observe(.value, with: { (snap) in
+        ref.child((Auth.auth().currentUser?.uid)!).queryOrdered(byChild: "content").queryEqual(toValue: "MIB").observe(.value, with: { (snap) in
             print(snap)
         })
     }

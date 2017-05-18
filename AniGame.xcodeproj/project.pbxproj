@@ -23,6 +23,8 @@
 		C20D115E1ECD61A50047EDD5 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20D11561ECD61A50047EDD5 /* ListTableViewCell.swift */; };
 		C20D115F1ECD61A50047EDD5 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20D11571ECD61A50047EDD5 /* ListViewController.swift */; };
 		C20D11601ECD61A50047EDD5 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20D11581ECD61A50047EDD5 /* Utility.swift */; };
+		C20D11621ECD66EA0047EDD5 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20D11611ECD66EA0047EDD5 /* TestView.swift */; };
+		C20D11641ECD69FF0047EDD5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C20D11631ECD69FF0047EDD5 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		C20D11561ECD61A50047EDD5 /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		C20D11571ECD61A50047EDD5 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		C20D11581ECD61A50047EDD5 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		C20D11611ECD66EA0047EDD5 /* TestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		C20D11631ECD69FF0047EDD5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,7 @@
 		C20D11221ECD5EAB0047EDD5 /* AniGame */ = {
 			isa = PBXGroup;
 			children = (
+				C20D11631ECD69FF0047EDD5 /* GoogleService-Info.plist */,
 				C20D11511ECD61A50047EDD5 /* ProfileViewController.swift */,
 				C20D11521ECD61A50047EDD5 /* SignupViewController.swift */,
 				C20D11531ECD61A50047EDD5 /* LoginViewController.swift */,
@@ -134,6 +139,7 @@
 				C20D112A1ECD5EAB0047EDD5 /* Assets.xcassets */,
 				C20D112C1ECD5EAB0047EDD5 /* LaunchScreen.storyboard */,
 				C20D112F1ECD5EAB0047EDD5 /* Info.plist */,
+				C20D11611ECD66EA0047EDD5 /* TestView.swift */,
 			);
 			path = AniGame;
 			sourceTree = "<group>";
@@ -288,6 +294,7 @@
 			files = (
 				C20D112E1ECD5EAB0047EDD5 /* LaunchScreen.storyboard in Resources */,
 				C20D115D1ECD61A50047EDD5 /* ListTableViewCell.xib in Resources */,
+				C20D11641ECD69FF0047EDD5 /* GoogleService-Info.plist in Resources */,
 				C20D112B1ECD5EAB0047EDD5 /* Assets.xcassets in Resources */,
 				C20D11291ECD5EAB0047EDD5 /* Main.storyboard in Resources */,
 			);
@@ -368,6 +375,7 @@
 				C20D11261ECD5EAB0047EDD5 /* ViewController.swift in Sources */,
 				C20D115C1ECD61A50047EDD5 /* CustomButton.swift in Sources */,
 				C20D115A1ECD61A50047EDD5 /* SignupViewController.swift in Sources */,
+				C20D11621ECD66EA0047EDD5 /* TestView.swift in Sources */,
 				C20D115B1ECD61A50047EDD5 /* LoginViewController.swift in Sources */,
 				C20D115F1ECD61A50047EDD5 /* ListViewController.swift in Sources */,
 				C20D11241ECD5EAB0047EDD5 /* AppDelegate.swift in Sources */,

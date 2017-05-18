@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  SampleFirebase
 //
-//  Created by ShinokiRyosei on 2016/02/22.
-//  Copyright © 2016年 ShinokiRyosei. All rights reserved.
+//  Created by takakura naohiro on 2017/05/18.
+//  Copyright © 2017年 GeoMagnet. All rights reserved.
 //
 
 import UIKit
@@ -11,11 +11,11 @@ import Firebase //Firebaseをインポート
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
-    let ref = FIRDatabase.database().reference() //FirebaseDatabaseのルートを指定
+    let ref = Database.database().reference() //FirebaseDatabaseのルートを指定
     
     @IBOutlet var textField: UITextField! //投稿のためのTextField
     var isCreate = true //データの作成か更新かを判定、trueなら作成、falseなら更新
-    var selectedSnap: FIRDataSnapshot! //ListViewControllerからのデータの受け取りのための変数
+    var selectedSnap: DataSnapshot! //ListViewControllerからのデータの受け取りのための変数
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +61,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //setValueでデータを送信する。第一引数に送信したいデータを辞書型で入れる
         //今回は記入内容と一緒にユーザーIDと時間を入れる
         //FIRServerValue.timestamp()で現在時間を取る
-        self.ref.child((FIRAuth.auth()?.currentUser?.uid)!).childByAutoId().setValue(["user": (FIRAuth.auth()?.currentUser?.uid)!,"content": text, "date": FIRServerValue.timestamp()])
+        self.ref.child((Auth.auth().currentUser?.uid)!).childByAutoId().setValue(["user": (Auth.auth().currentUser?.uid)!,"content": text, "date": ServerValue.timestamp()])
     }
     
     //更新のためのメソッド
@@ -70,7 +70,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //ユーザーIDからのchildを受け取ったデータのIDに指定
         //updateChildValueを使って更新
         ref.keepSynced(true)
-        ref.child((FIRAuth.auth()?.currentUser?.uid)!).child("\(self.selectedSnap.key)").updateChildValues(["user": (FIRAuth.auth()?.currentUser?.uid)!,"content": self.textField.text!, "date": FIRServerValue.timestamp()])
+        ref.child((Auth.auth().currentUser?.uid)!).child("\(self.selectedSnap.key)").updateChildValues(["user": (Auth.auth().currentUser?.uid)!,"content": self.textField.text!, "date": ServerValue.timestamp()])
     }
     
 

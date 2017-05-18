@@ -2,8 +2,8 @@
 //  LoginViewController.swift
 //  SampleFirebase
 //
-//  Created by ShinokiRyosei on 2016/05/15.
-//  Copyright © 2016年 ShinokiRyosei. All rights reserved.
+//  Created by takakura naohiro on 2017/05/18.
+//  Copyright © 2017年 GeoMagnet. All rights reserved.
 //
 
 import UIKit
@@ -50,14 +50,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
             //signInWithEmailでログイン
             //第一引数にEmail、第二引数にパスワードを取ります
-            FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
+            Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
                 //エラーがないことを確認
                 if error == nil {
                     if let loginUser = user {
                         // バリデーションが完了しているか確認。完了ならそのままログイン
                         if self.checkUserValidate(user: loginUser) {
                             // 完了済みなら、ListViewControllerに遷移
-                            print(FIRAuth.auth()?.currentUser)
+                            print(Auth.auth().currentUser)
                             self.transitionToView()
                         }else {
                             // 完了していない場合は、アラートを表示
@@ -70,7 +70,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             })
     }
     // ログインした際に、バリデーションが完了しているか返す
-    func checkUserValidate(user: FIRUser)  -> Bool {
+    func checkUserValidate(user: User)  -> Bool {
         return user.isEmailVerified
     }
     // メールのバリデーションが完了していない場合のアラートを表示

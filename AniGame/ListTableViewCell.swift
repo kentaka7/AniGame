@@ -2,8 +2,8 @@
 //  ListTableViewCell.swift
 //  SampleFirebase
 //
-//  Created by ShinokiRyosei on 2016/02/27.
-//  Copyright © 2016年 ShinokiRyosei. All rights reserved.
+//  Created by takakura naohiro on 2017/05/18.
+//  Copyright © 2017年 GeoMagnet. All rights reserved.
 //
 
 import UIKit
