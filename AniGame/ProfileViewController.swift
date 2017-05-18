@@ -1,0 +1,139 @@
+//
+//  ProfileViewController.swift
+//  SampleFirebase
+//
+
+import UIKit
+import FirebaseStorage
+import FirebaseAuth
+
+class ProfileViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
+    @IBOutlet var profileImageView: UIImageView!
+    @IBOutlet var emailLabel: UILabel!
+    
+    var imagePicker: UIImagePickerController!
+    
+    let ref = Storage.storage().reference()
+    
+    var uploadImage: UIImage!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        self.updateProfileImageView()
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.read()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func didSelectPlus() {
+        self.presentActionSheet()
+    }
+    
+    @IBAction func didSelectLogout() {
+        self.logout()
+    }
+    
+    func presentActionSheet() {
+        let alert = UIAlertController(title: "写真を選択", message: "どちらから選択しますか?", preferredStyle: .actionSheet)
+        let library = UIAlertAction(title: "ライブラリ", style: .default) { (action) in
+            self.presentPhotoLibrary()
+        }
+        
+        let camera = UIAlertAction(title: "カメラ", style: .default) { (action) in
+            self.presentCamera()
+        }
+        
+        alert.addAction(library)
+        alert.addAction(camera)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func presentPhotoLibrary() {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            imagePicker.sourceType = .photoLibrary
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    func presentCamera() {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            imagePicker.sourceType = .camera
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    func create(uploadImage image: UIImage) {
+        let uploadData: Data = UIImagePNGRepresentation(image)!
+        ref.child((Auth.auth().currentUser?.uid)!).put(uploadData, metadata: nil) { (data, error) in
+            if error != nil {
+                print("\(error?.localizedDescription)")
+            }else {
+                
+            }
+        }
+    }
+    
+    func read() {
+        let gsReference = Storage.storage().reference(forURL: "gs://sampledrud.appspot.com")
+        gsReference.child((Auth.auth().currentUser?.uid)!).data(withMaxSize: 1 * 1028 * 1028) { (data, error) in
+            if error != nil {
+                print("\(error?.localizedDescription)")
+            }else {
+                self.uploadImage = UIImage(data: data!)
+                self.profileImageView.image = self.uploadImage
+            }
+        }
+    }
+    
+    func changeEmail() {
+        
+    }
+    
+    func changePassword() {
+        
+    }
+    
+    func exitFromService() {
+        
+    }
+    
+    func logout() {
+        do {
+            //do-try-catchの中で、FIRAuth.auth()?.signOut()を呼ぶだけで、ログアウトが完了
+            try Auth.auth().signOut()
+            
+            //先頭のNavigationControllerに遷移
+            let storyboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Nav")
+            self.present(storyboard, animated: true, completion: nil)
+        }catch let error as NSError {
+            print("\(error.localizedDescription)")
+        }
+        
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image: UIImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            uploadImage = image
+            profileImageView.image = uploadImage
+            self.create(uploadImage: uploadImage)
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    func updateProfileImageView() {
+        profileImageView.layer.cornerRadius = profileImageView.layer.bounds.width/2
+        profileImageView.layer.masksToBounds = true
+    }
+}
