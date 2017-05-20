@@ -115,4 +115,4 @@ Pods
 Podfile.lock
 
 #this app
-AniGame/GoogleService-Info.plist
+GoogleService-Info.plist
