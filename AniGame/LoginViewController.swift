@@ -11,17 +11,24 @@ import Firebase //Firebaseをインポート
 //import FontAwesome_swift
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
-    
-    @IBOutlet var emailTextField: UITextField! // Emailを打つためのTextField
-    
-    @IBOutlet var passwordTextField: UITextField! //Passwordを打つためのTextField
+    @IBOutlet var emailTextField: UITextField!
+    @IBOutlet var passwordTextField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        emailTextField.delegate = self //デリゲートをセット
-        passwordTextField.delegate = self //デリゲートをセット
-        passwordTextField.isSecureTextEntry  = true // 文字を非表示に
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        passwordTextField.isSecureTextEntry = true
+        
+        let myColor : UIColor = UIColor.lightGray
+        emailTextField.layer.borderWidth = 1
+        passwordTextField.layer.borderWidth = 1
+        
+        emailTextField.layer.borderColor = myColor.cgColor
+        passwordTextField.layer.borderColor = myColor.cgColor
+        
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

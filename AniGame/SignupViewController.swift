@@ -13,34 +13,25 @@ import TwitterKit
 //import FontAwesome_swift
 
 class SignupViewController: UIViewController, UITextFieldDelegate {
-    @IBOutlet var emailTextField: UITextField! // Emailを打つためのTextField
-    @IBOutlet var passwordTextField: UITextField! //Passwordを打つためのTextField
+    @IBOutlet var emailTextField: UITextField!
+    @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var facebookButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        debugPrint("まいにち１時間はプログラミングをする")
-        
-        emailTextField.delegate = self //デリゲートをセット
-        passwordTextField.delegate = self //デリゲートをセット
-        passwordTextField.isSecureTextEntry = true // 文字を非表示に
-        
-        //debug
-        facebookButton.setTitle("ログイン", for: .normal)
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        passwordTextField.isSecureTextEntry = true
+        facebookButton.setTitle("FaceBook", for: .normal)
 
         //self.layoutFacebookButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
-        //ログインしていれば、遷移
-        //FIRAuthがユーザー認証のためのフレーム
-        //checkUserVerifyでチェックして、ログイン済みなら画面遷移
         if self.checkUserVerify() {
             self.performSegue(withIdentifier: "toView", sender: self)
         }
-
     }
     
     override func didReceiveMemoryWarning() {
@@ -67,8 +58,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
         //emailTextFieldとpasswordTextFieldに文字がなければ、その後の処理をしない
         guard let email    = emailTextField.text else  { return }
         guard let password = passwordTextField.text else { return }
-        //FIRAuth.auth()?.createUserWithEmailでサインアップ
-        //第一引数にEmail、第二引数にパスワード
+        
         Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
             //エラーなしなら、認証完了
             if error == nil{
@@ -155,10 +145,8 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
     
     // ログイン済みかどうかと、メールのバリデーションが完了しているか確認
     func checkUserVerify()  -> Bool {
-        
         guard let user = Auth.auth().currentUser else { return false }
-        debugPrint("user:\(user.displayName) \(user.email)")
-        
+        //print("user:  name:%@  email:%@",user.displayName!,user.email!)
         return user.isEmailVerified
     }
     
