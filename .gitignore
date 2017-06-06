@@ -116,3 +116,5 @@ Podfile.lock
 
 #this app
 GoogleService-Info.plist
+Fabric.framework/
+Fabric.framework
