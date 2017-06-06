@@ -11,8 +11,7 @@ import Firebase //Firebaseをインポート
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
-    let ref = Database.database().reference() //FirebaseDatabaseのルートを指定
-    
+    let ref = Database.database().reference()
     @IBOutlet var textField: UITextField! //投稿のためのTextField
     var isCreate = true //データの作成か更新かを判定、trueなら作成、falseなら更新
     var selectedSnap: DataSnapshot! //ListViewControllerからのデータの受け取りのための変数

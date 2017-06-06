@@ -7,15 +7,13 @@
 //
 
 import UIKit
-import Firebase //Firebaseをインポート
+import Firebase
 
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var table: UITableView! //送信したデータを表示するTableView
-    
     var contentArray: [DataSnapshot] = [] //Fetchしたデータを入れておく配列、この配列をTableViewで表示
-    
-    let ref = Database.database().reference() //Firebaseのルートを宣言しておく
+    let ref = Database.database().reference()
 
     var snap: DataSnapshot!
     var selectedSnap: DataSnapshot!

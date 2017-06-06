@@ -25,6 +25,7 @@
 		C20D11601ECD61A50047EDD5 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20D11581ECD61A50047EDD5 /* Utility.swift */; };
 		C20D11621ECD66EA0047EDD5 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20D11611ECD66EA0047EDD5 /* TestView.swift */; };
 		C20D11661ECD6EA80047EDD5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C20D11651ECD6EA80047EDD5 /* GoogleService-Info.plist */; };
+		C24E0A931ED912E300038FF1 /* Fabric.plist in Resources */ = {isa = PBXBuildFile; fileRef = C24E0A921ED912E300038FF1 /* Fabric.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,8 @@
 		C20D11581ECD61A50047EDD5 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		C20D11611ECD66EA0047EDD5 /* TestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		C20D11651ECD6EA80047EDD5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C247C1AB1ED3C53900F4B980 /* AniGame-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AniGame-Bridging-Header.h"; sourceTree = "<group>"; };
+		C24E0A921ED912E300038FF1 /* Fabric.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Fabric.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +143,8 @@
 				C20D112C1ECD5EAB0047EDD5 /* LaunchScreen.storyboard */,
 				C20D112F1ECD5EAB0047EDD5 /* Info.plist */,
 				C20D11611ECD66EA0047EDD5 /* TestView.swift */,
+				C247C1AB1ED3C53900F4B980 /* AniGame-Bridging-Header.h */,
+				C24E0A921ED912E300038FF1 /* Fabric.plist */,
 			);
 			path = AniGame;
 			sourceTree = "<group>";
@@ -192,6 +197,7 @@
 				C20D111E1ECD5EAB0047EDD5 /* Resources */,
 				3AB1A3432927DCE620527EE0 /* [CP] Embed Pods Frameworks */,
 				D5FDE2919A1061D4CF1A572C /* [CP] Copy Pods Resources */,
+				C24E0A911ED90DF200038FF1 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -251,6 +257,7 @@
 					C20D111F1ECD5EAB0047EDD5 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = 5RLP68N6AT;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					C20D11331ECD5EAB0047EDD5 = {
@@ -295,6 +302,7 @@
 				C20D112E1ECD5EAB0047EDD5 /* LaunchScreen.storyboard in Resources */,
 				C20D115D1ECD61A50047EDD5 /* ListTableViewCell.xib in Resources */,
 				C20D11661ECD6EA80047EDD5 /* GoogleService-Info.plist in Resources */,
+				C24E0A931ED912E300038FF1 /* Fabric.plist in Resources */,
 				C20D112B1ECD5EAB0047EDD5 /* Assets.xcassets in Resources */,
 				C20D11291ECD5EAB0047EDD5 /* Main.storyboard in Resources */,
 			);
@@ -331,6 +339,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AniGame/Pods-AniGame-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		C24E0A911ED90DF200038FF1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 220e52c8385c72f39008148dad1247abd4b95930 039dd4710b9e97b562b5cb40d9c6efcccc6c6e4ec92a90712d1a54632a0b4218";
 		};
 		D5FDE2919A1061D4CF1A572C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -533,11 +554,14 @@
 			baseConfigurationReference = 82A8729E99A9578B748FEC0F /* Pods-AniGame.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 5RLP68N6AT;
 				INFOPLIST_FILE = AniGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.geomagnet.AniGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AniGame/AniGame-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -547,11 +571,13 @@
 			baseConfigurationReference = 4853AEED75DA869B03DF269A /* Pods-AniGame.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 5RLP68N6AT;
 				INFOPLIST_FILE = AniGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.geomagnet.AniGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AniGame/AniGame-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

@@ -7,29 +7,28 @@
 //
 
 import UIKit
-import Firebase //Firebaseをインポート
+import Firebase
+import FBSDKCoreKit
 import FBSDKLoginKit
+import FirebaseAuth
 import TwitterKit
-//import FontAwesome_swift
+import SVProgressHUD
+
 
 class SignupViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
-    @IBOutlet var facebookButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         emailTextField.delegate = self
         passwordTextField.delegate = self
         passwordTextField.isSecureTextEntry = true
-        facebookButton.setTitle("FaceBook", for: .normal)
-
-        //self.layoutFacebookButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if self.checkUserVerify() {
+        if self.checkUserVerify() == true {
             self.performSegue(withIdentifier: "toView", sender: self)
         }
     }
@@ -48,9 +47,126 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
         self.performSegue(withIdentifier: "toLogin", sender: self)
     }
     
-    @IBAction func willLoginWithFacebook() {
-        self.loginWithFacebook()
+    //twitterでログイン
+    @IBAction func loginTwitter(_ sender: Any) {
+/*
+        Twitter.sharedInstance().logIn(completion: { (session, error) in
+            if (session != nil) {
+                print("signed in as \(session?.userName)");
+            } else {
+                print("error: \(error?.localizedDescription)");
+            }
+        })
+*/
+/*
+        if let _ = Auth.auth().currentUser { //Twitter以外でログインされている可能性大
+            self.OkAlert(_tile: "Link Twitter", _message: "現在ログインしているユーザに対し、Twitterでもログイン可能にしますか？", _target: self, OKCallBack: {
+                Twitter.sharedInstance().logIn(completion: { (session:TWTRSession?, error:Error?) in
+                    if(!(error != nil)){
+                        let credential = TwitterAuthProvider.credential(withToken: session!.authToken, secret: session!.authTokenSecret)
+                        self.linkToCurrentUser(credential: credential)
+                    }
+                })
+            })
+        }else{
+            Twitter.sharedInstance().logIn(completion: { (session:TWTRSession?, error:Error?) in
+                if (!(error != nil)){
+                    let credential = TwitterAuthProvider.credential(withToken: session!.authToken, secret: session!.authTokenSecret)
+                    self.signIn(credential: credential)
+                }
+            })
+        }
+*/
     }
+
+    //FaceBookでログイン
+    @IBAction func loginByFacebookID(sender: AnyObject) {
+        let fbLoginManager: FBSDKLoginManager = FBSDKLoginManager()
+        //そのまま認証
+        fbLoginManager.logIn(withReadPermissions: ["public_profile","email"], from: self, handler: { (result:FBSDKLoginManagerLoginResult?, error:Error?) in
+            if (!(result?.isCancelled)!){
+                let credential = FacebookAuthProvider.credential(withAccessToken: (result?.token.tokenString)!)
+                SVProgressHUD.show(withStatus: "認証中")
+                self.signIn(credential: credential)
+                
+            }
+        })
+
+        
+/*
+        if let currentUser = Auth.auth().currentUser { //Facebook以外でログインされている可能性大
+            print("currentUser:\(currentUser)")
+            self.OkAlert(_tile: "Link Facebook", _message: "現在ログインしているユーザに対し、Facebookでもログイン可能にしますか？", _target: self, OKCallBack: {
+                fbLoginManager.logIn(withReadPermissions: ["public_profile","email"], from: self, handler: { (result:FBSDKLoginManagerLoginResult?, error:Error?) in
+                    let credential:AuthCredential = FacebookAuthProvider.credential(withAccessToken: (result?.token.tokenString)!)
+                    self.linkToCurrentUser(credential: credential)
+                })
+            })
+        }else{
+            //そのまま認証
+            fbLoginManager.logIn(withReadPermissions: ["public_profile","email"], from: self, handler: { (result:FBSDKLoginManagerLoginResult?, error:Error?) in
+                if (!(result?.isCancelled)!){
+                    let credential = FacebookAuthProvider.credential(withAccessToken: (result?.token.tokenString)!)
+                    self.signIn(credential: credential)
+                }
+            })
+        }
+*/
+/*
+        let loginManager: FBSDKLoginManager = FBSDKLoginManager()
+        loginManager.logIn(withReadPermissions: ["public_profile", "email", "user_friends"], from: self) { (result, error) in
+            if (error != nil) {
+                // エラーが発生した場合
+                print("Process error")
+            } else if (result?.isCancelled)! {
+                // ログインをキャンセルした場合
+                print("Cancelled")
+            } else {
+                // その他
+                let credial: AuthCredential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+                print(FBSDKAccessToken.current().tokenString)
+                print("credial...\(credial)")
+                self.firebaseLoginWithCredial(credial: credial)
+            }
+        }
+ */
+    }
+    // MARK: - Link/signIn
+    func linkToCurrentUser(credential:AuthCredential){
+        Auth.auth().currentUser?.link(with: credential, completion: { (user:User?, error:Error?) in
+            print("linkToCurrentUser displayName: \(user)")
+        })
+    }
+    
+    func signIn(credential:AuthCredential){
+        Auth.auth().signIn(with: credential, completion: { (user:User?, error:Error?) in
+            print("FaceBookでサインイン displayName: %@ email:%@",user?.displayName,user?.email)
+            SVProgressHUD.dismiss()
+            self.performSegue(withIdentifier: "toView", sender: self)
+        })
+    }
+    
+    // alert
+    private func OkAlert(_tile:String, _message:String, _target:UIViewController, OKCallBack:@escaping () -> Void) -> Void{
+        let alertController = UIAlertController(
+            title: _tile,
+            message: _message,
+            preferredStyle: .alert)
+        let actionOK = UIAlertAction(title: "OK", style: .default) {
+            action in
+            // ok code
+            OKCallBack()
+        }
+        let actionCancel = UIAlertAction(title: "CANCEL", style: .cancel) {
+            action in
+            // cancel code
+        }
+        alertController.addAction(actionOK)
+        alertController.addAction(actionCancel)
+        
+        _target.present(alertController, animated: true, completion: nil)
+    }
+    
     
     
     //Signupのためのメソッド
@@ -79,6 +195,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
     }
     
     
+/*
     // Facebookでユーザー認証するためのメソッド
     func loginWithFacebook() {
         let facebookLogin = FBSDKLoginManager()
@@ -96,22 +213,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
-    
-    //twitterでログイン
-    @IBAction func loginWithTwitter(sender: TWTRLogInButton) {
-        sender.logInCompletion = { (session: TWTRSession?, err: NSError?) in
-            if let session = session {
-                let credential = TwitterAuthProvider.credential(withToken: session.authToken, secret: session.authTokenSecret)
-                
-                Auth.auth().signIn(with: credential, completion: { (user, error) in
-                    if let err = error {
-                        print(err)
-                        return
-                    }
-                })
-            }
-        } as! TWTRLogInCompletion
-    }
+*/
     
     func firebaseLoginWithCredial(credial: AuthCredential) {
         if Auth.auth().currentUser != nil {
@@ -142,11 +244,11 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
             })
         }
     }
+
     
     // ログイン済みかどうかと、メールのバリデーションが完了しているか確認
     func checkUserVerify()  -> Bool {
         guard let user = Auth.auth().currentUser else { return false }
-        //print("user:  name:%@  email:%@",user.displayName!,user.email!)
         return user.isEmailVerified
     }
     

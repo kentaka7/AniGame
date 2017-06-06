@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseStorage
 import FirebaseAuth
+import SVProgressHUD
 
 class ProfileViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
@@ -16,13 +17,13 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     @IBOutlet var emailLabel: UILabel!
     
     var imagePicker: UIImagePickerController!
-    
-    let ref = Storage.storage().reference()
-    
+    var storageRef:AnyObject?
     var uploadImage: UIImage!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        storageRef = Storage.storage().reference(forURL: self.getBucket())
+        
         // Do any additional setup after loading the view.
         self.updateProfileImageView()
         imagePicker = UIImagePickerController()
@@ -31,6 +32,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        print("再表示")
         self.read()
     }
 
@@ -39,9 +41,50 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func didSelectPlus() {
-        self.presentActionSheet()
+    @IBAction func selectImageWithLibrary(_ sender: AnyObject) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
+            let controller = UIImagePickerController()
+            controller.delegate = self
+            controller.sourceType = UIImagePickerControllerSourceType.photoLibrary
+            present(controller, animated: true, completion: nil)
+        }
     }
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo
+        info: [String : Any]) {
+        
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            uploadImage = image
+            profileImageView.image = uploadImage
+            self.create(uploadImage: self.resize(image: uploadImage,scale: 0.1))
+            picker.dismiss(animated: true, completion: nil)
+        } else{
+            print("Something went wrong")
+        }
+    }
+    
+    func resize(image: UIImage, scale:CGFloat) -> UIImage {
+        let imageRef: CGImage = image.cgImage!
+        let sourceWidth:CGFloat = CGFloat(imageRef.width)
+        let sourceHeight: CGFloat = CGFloat(imageRef.height)
+        let width:Int  = Int(sourceWidth * scale)
+        let height:Int = Int(sourceHeight * scale)
+        
+        let size: CGSize = CGSize(width: width, height: height)
+        UIGraphicsBeginImageContext(size)
+        image.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+        let resizeImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return resizeImage!
+    }
+
+    func countPhoto() -> String {
+        let ud = UserDefaults.standard
+        let count = ud.object(forKey: "count") as! Int
+        ud.set(count + 1, forKey: "count")
+        return String(count) + ".jpg"
+    }
+
     
     @IBAction func didSelectLogout() {
         self.logout()
@@ -77,20 +120,25 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     }
     
     func create(uploadImage image: UIImage) {
-        let uploadData: Data = UIImagePNGRepresentation(image)!
-        ref.child((Auth.auth().currentUser?.uid)!).putData(uploadData, metadata: nil) { (data, error) in
-            if error != nil {
-                print("\(error?.localizedDescription)")
-            }else {
-                
+        if let uploadImage = UIImagePNGRepresentation(image) {
+            let metadata = StorageMetadata()
+            metadata.contentType = "image/jpeg"
+            self.storageRef?.child("images/\((Auth.auth().currentUser?.uid)!)/test03.jpg").putData(uploadImage, metadata: metadata) { (data, error) in
+                if error != nil {
+                    print("アップロードエラー")
+                    print("\(String(describing: error?.localizedDescription))")
+                }else {
+                    
+                }
             }
         }
     }
     
     func read() {
-        let gsReference = Storage.storage().reference(forURL: "gs://sampledrud.appspot.com")
-        gsReference.child((Auth.auth().currentUser?.uid)!).getData(maxSize: 1 * 1028 * 1028) { (data, error) in
+        let gsReference = Storage.storage().reference(forURL: self.getBucket())
+        gsReference.child("images/\((Auth.auth().currentUser?.uid)!)/test03.jpg").getData(maxSize: 1 * 1028 * 1028) { (data, error) in
             if error != nil {
+                print("ダウンロードエラー！")
                 print("\(error?.localizedDescription)")
             }else {
                 self.uploadImage = UIImage(data: data!)
@@ -122,21 +170,19 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         }catch let error as NSError {
             print("\(error.localizedDescription)")
         }
-        
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let image: UIImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            uploadImage = image
-            profileImageView.image = uploadImage
-            self.create(uploadImage: uploadImage)
-        }
-        picker.dismiss(animated: true, completion: nil)
+    func getBucket() -> String{
+        let path = Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist")
+        let dictionary = NSDictionary(contentsOfFile: path!)
+        let url:String = "gs://\(dictionary?.object(forKey: "STORAGE_BUCKET") as! String)/"
+        return url;
     }
-    
     
     func updateProfileImageView() {
         profileImageView.layer.cornerRadius = profileImageView.layer.bounds.width/2
         profileImageView.layer.masksToBounds = true
     }
 }
+
+

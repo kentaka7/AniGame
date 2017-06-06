@@ -9,12 +9,17 @@ target "AniGame" do
   pod 'Firebase/Messaging'
   pod 'Firebase/Storage'
   pod 'FontAwesome.swift', :git=>'https://github.com/thii/FontAwesome.swift.git'
+  #Facebook
   pod 'FBSDKLoginKit'
   pod 'FBSDKCoreKit'
   pod 'FBSDKShareKit'
+  #Twitter
   pod 'TwitterKit'
+  pod 'TwitterCore'
   pod 'Fabric'
   pod 'Crashlytics'
+
+  pod 'SVProgressHUD'
   pod "PromiseKit"
   pod 'Alamofire'
   pod 'ObjectMapper'

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Fabric</key>
+	<dict>
+		<key>APIKey</key>
+		<string>220e52c8385c72f39008148dad1247abd4b95930</string>
+		<key>Kits</key>
+		<array>
+			<dict>
+				<key>KitInfo</key>
+				<dict>
+					<key>consumerKey</key>
+					<string>LGp2Pxf75MpK4qsSk16zpRHWP</string>
+					<key>consumerSecret</key>
+					<string>AWCRKBn61czFfnEn27JjCgGH2gSk4LKpUpDjkqFcbVv8yemoRx</string>
+				</dict>
+				<key>KitName</key>
+				<string>Twitter</string>
+			</dict>
+		</array>
+	</dict>
+</dict>
+</plist>

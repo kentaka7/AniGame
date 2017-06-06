@@ -12,7 +12,7 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 import Fabric
 import TwitterKit
-
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,8 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerUserNotificationSettings(notificationSetting)
         application.registerForRemoteNotifications()
         
-        FirebaseApp.configure() //Firebaseとコネクト
-        //Fabric.with([Twitter.self])
+        FirebaseApp.configure()
+        Twitter.sharedInstance().start(withConsumerKey:"LGp2Pxf75MpK4qsSk16zpRHWP", consumerSecret:"AWCRKBn61czFfnEn27JjCgGH2gSk4LKpUpDjkqFcbVv8yemoRx")
+        Fabric.with([Crashlytics.self, Twitter.self])
+        
         Database.database().isPersistenceEnabled = true //ローカルにデータベースを構築する設定
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -86,6 +88,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        let result = FBSDKApplicationDelegate.sharedInstance().application(application, open: url as URL!, sourceApplication: sourceApplication, annotation: annotation)
+        return result
+    }
+
+    func applicationDidBecomeActive(application: UIApplication) {
+        FBSDKAppEvents.activateApp()
+    }
+
 
 
 }
