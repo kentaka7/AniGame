@@ -29,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Twitter.sharedInstance().start(withConsumerKey:"LGp2Pxf75MpK4qsSk16zpRHWP", consumerSecret:"AWCRKBn61czFfnEn27JjCgGH2gSk4LKpUpDjkqFcbVv8yemoRx")
         Fabric.with([Crashlytics.self, Twitter.self])
         
+        
         Database.database().isPersistenceEnabled = true //ローカルにデータベースを構築する設定
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
