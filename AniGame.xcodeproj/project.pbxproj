@@ -72,6 +72,7 @@
 		C20D11581ECD61A50047EDD5 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		C20D11611ECD66EA0047EDD5 /* TestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		C20D11651ECD6EA80047EDD5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C21F3D741EE65AB3004AD768 /* AniGame.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AniGame.entitlements; sourceTree = "<group>"; };
 		C247C1AB1ED3C53900F4B980 /* AniGame-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AniGame-Bridging-Header.h"; sourceTree = "<group>"; };
 		C24E0A921ED912E300038FF1 /* Fabric.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Fabric.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,6 +128,7 @@
 		C20D11221ECD5EAB0047EDD5 /* AniGame */ = {
 			isa = PBXGroup;
 			children = (
+				C21F3D741EE65AB3004AD768 /* AniGame.entitlements */,
 				C20D11651ECD6EA80047EDD5 /* GoogleService-Info.plist */,
 				C20D11511ECD61A50047EDD5 /* ProfileViewController.swift */,
 				C20D11521ECD61A50047EDD5 /* SignupViewController.swift */,
@@ -259,6 +261,11 @@
 						DevelopmentTeam = 5RLP68N6AT;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					C20D11331ECD5EAB0047EDD5 = {
 						CreatedOnToolsVersion = 8.3.2;
@@ -555,6 +562,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = AniGame/AniGame.entitlements;
 				DEVELOPMENT_TEAM = 5RLP68N6AT;
 				INFOPLIST_FILE = AniGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -572,6 +580,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = AniGame/AniGame.entitlements;
 				DEVELOPMENT_TEAM = 5RLP68N6AT;
 				INFOPLIST_FILE = AniGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
