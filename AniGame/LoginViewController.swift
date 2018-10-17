@@ -57,6 +57,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 //エラーがないことを確認
                 if error == nil {
                     if let loginUser = user {
+                        // 完了済みなら、ListViewControllerに遷移
+                        print(Auth.auth().currentUser)
+                        self.transitionToView()
+/*
                         // バリデーションが完了しているか確認。完了ならそのままログイン
                         if self.checkUserValidate(user: loginUser) {
                             // 完了済みなら、ListViewControllerに遷移
@@ -66,6 +70,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                             // 完了していない場合は、アラートを表示
                             self.presentValidateAlert()
                         }
+*/
                     }
                 }else {
                     print("error...\(error?.localizedDescription)")

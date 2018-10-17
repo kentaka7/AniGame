@@ -178,6 +178,10 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
         Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
             //エラーなしなら、認証完了
             if error == nil{
+                
+                // エラーがない場合にはそのままログイン画面に飛び、ログインしてもらう
+                self.willTransitionToLogin()
+/*
                 // メールのバリデーションを行う
                 user?.sendEmailVerification(completion: { (error) in
                     if error == nil {
@@ -187,6 +191,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
                         print("\(error?.localizedDescription)")
                     }
                 })
+ */
             }else {
                 
                 print("\(error?.localizedDescription)")

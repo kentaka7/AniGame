@@ -26,8 +26,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerForRemoteNotifications()
         
         FirebaseApp.configure()
-        Twitter.sharedInstance().start(withConsumerKey:"LGp2Pxf75MpK4qsSk16zpRHWP", consumerSecret:"AWCRKBn61czFfnEn27JjCgGH2gSk4LKpUpDjkqFcbVv8yemoRx")
-        Fabric.with([Crashlytics.self, Twitter.self])
+        
+        FBSDKApplicationDelegate.sharedInstance().application(application,
+                                                              didFinishLaunchingWithOptions:launchOptions)
+        
+        TWTRTwitter.sharedInstance().start(withConsumerKey:"LGp2Pxf75MpK4qsSk16zpRHWP", consumerSecret:"AWCRKBn61czFfnEn27JjCgGH2gSk4LKpUpDjkqFcbVv8yemoRx")
+        //Fabric.with([Crashlytics.self, TWTRTwitter.self])
         
         //リアルタイム
         Database.database().isPersistenceEnabled = true //ローカルにデータベースを構築する設定
@@ -42,29 +46,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-
-        //let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
+/*
+        let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
         var tokenString = ""
         
         for i in 0..<deviceToken.count {
-        //    tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
+            tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
         }
         
         InstanceID.instanceID().setAPNSToken(deviceToken as Data, type: InstanceIDAPNSTokenType.unknown)
-
+*/
     }
     
     
     private func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject],
                      fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        // If you are receiving a notification message while your app is in the background,
-        // this callback will not be fired till the user taps on the notification launching the application.
-        // TODO: Handle data of notification
-        
-        // Print message ID.
-        //print("Message ID: \(userInfo["gcm.message_id"]!)")
-        
-        // Print full message.
         print("%@", userInfo)
     }
     
