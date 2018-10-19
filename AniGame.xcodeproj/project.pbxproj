@@ -15,18 +15,16 @@
 		C20D112E1ECD5EAB0047EDD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C20D112C1ECD5EAB0047EDD5 /* LaunchScreen.storyboard */; };
 		C20D11391ECD5EAB0047EDD5 /* AniGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20D11381ECD5EAB0047EDD5 /* AniGameTests.swift */; };
 		C20D11441ECD5EAB0047EDD5 /* AniGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20D11431ECD5EAB0047EDD5 /* AniGameUITests.swift */; };
-		C20D11591ECD61A50047EDD5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20D11511ECD61A50047EDD5 /* ProfileViewController.swift */; };
-		C20D115A1ECD61A50047EDD5 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20D11521ECD61A50047EDD5 /* SignupViewController.swift */; };
-		C20D115B1ECD61A50047EDD5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20D11531ECD61A50047EDD5 /* LoginViewController.swift */; };
-		C20D115C1ECD61A50047EDD5 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20D11541ECD61A50047EDD5 /* CustomButton.swift */; };
-		C20D115D1ECD61A50047EDD5 /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C20D11551ECD61A50047EDD5 /* ListTableViewCell.xib */; };
-		C20D115E1ECD61A50047EDD5 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20D11561ECD61A50047EDD5 /* ListTableViewCell.swift */; };
-		C20D115F1ECD61A50047EDD5 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20D11571ECD61A50047EDD5 /* ListViewController.swift */; };
 		C20D11601ECD61A50047EDD5 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20D11581ECD61A50047EDD5 /* Utility.swift */; };
 		C20D11621ECD66EA0047EDD5 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20D11611ECD66EA0047EDD5 /* TestView.swift */; };
 		C24E0A931ED912E300038FF1 /* Fabric.plist in Resources */ = {isa = PBXBuildFile; fileRef = C24E0A921ED912E300038FF1 /* Fabric.plist */; };
 		C26F73802179F65B00583181 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26F737F2179F65B00583181 /* UIColorExtension.swift */; };
 		C26F73822179F83900583181 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26F73812179F83900583181 /* UIImageExtension.swift */; };
+		C26F73872179F99300583181 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26F73832179F99200583181 /* ProfileViewController.swift */; };
+		C26F73882179F99300583181 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26F73842179F99200583181 /* SignupViewController.swift */; };
+		C26F73892179F99300583181 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26F73852179F99300583181 /* ListViewController.swift */; };
+		C26F738A2179F99300583181 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26F73862179F99300583181 /* LoginViewController.swift */; };
+		C26F738C2179F9A100583181 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26F738B2179F9A100583181 /* CustomButton.swift */; };
 		C2D683432179CE1B005D7F08 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D683422179CE1B005D7F08 /* AuthViewController.swift */; };
 		C2D683452179D0DA005D7F08 /* Root.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2D683442179D0DA005D7F08 /* Root.storyboard */; };
 		C2D683472179D3E1005D7F08 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2D683462179D3E1005D7F08 /* Home.storyboard */; };
@@ -77,13 +75,6 @@
 		C20D113F1ECD5EAB0047EDD5 /* AniGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AniGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C20D11431ECD5EAB0047EDD5 /* AniGameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AniGameUITests.swift; sourceTree = "<group>"; };
 		C20D11451ECD5EAB0047EDD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C20D11511ECD61A50047EDD5 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		C20D11521ECD61A50047EDD5 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
-		C20D11531ECD61A50047EDD5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		C20D11541ECD61A50047EDD5 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
-		C20D11551ECD61A50047EDD5 /* ListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
-		C20D11561ECD61A50047EDD5 /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
-		C20D11571ECD61A50047EDD5 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		C20D11581ECD61A50047EDD5 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		C20D11611ECD66EA0047EDD5 /* TestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		C21F3D741EE65AB3004AD768 /* AniGame.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AniGame.entitlements; sourceTree = "<group>"; };
@@ -91,6 +82,11 @@
 		C24E0A921ED912E300038FF1 /* Fabric.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Fabric.plist; sourceTree = "<group>"; };
 		C26F737F2179F65B00583181 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		C26F73812179F83900583181 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		C26F73832179F99200583181 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		C26F73842179F99200583181 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		C26F73852179F99300583181 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		C26F73862179F99300583181 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C26F738B2179F9A100583181 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		C2D683422179CE1B005D7F08 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		C2D683442179D0DA005D7F08 /* Root.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Root.storyboard; sourceTree = "<group>"; };
 		C2D683462179D3E1005D7F08 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -166,13 +162,6 @@
 				C2D683382179C9A8005D7F08 /* Protocols */,
 				C2D683372179C932005D7F08 /* StoryBoards */,
 				C21F3D741EE65AB3004AD768 /* AniGame.entitlements */,
-				C20D11511ECD61A50047EDD5 /* ProfileViewController.swift */,
-				C20D11521ECD61A50047EDD5 /* SignupViewController.swift */,
-				C20D11531ECD61A50047EDD5 /* LoginViewController.swift */,
-				C20D11541ECD61A50047EDD5 /* CustomButton.swift */,
-				C20D11551ECD61A50047EDD5 /* ListTableViewCell.xib */,
-				C20D11561ECD61A50047EDD5 /* ListTableViewCell.swift */,
-				C20D11571ECD61A50047EDD5 /* ListViewController.swift */,
 				C20D11581ECD61A50047EDD5 /* Utility.swift */,
 				C20D11231ECD5EAB0047EDD5 /* AppDelegate.swift */,
 				C20D11251ECD5EAB0047EDD5 /* ViewController.swift */,
@@ -227,6 +216,7 @@
 		C2D683392179C9C9005D7F08 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C26F738B2179F9A100583181 /* CustomButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -265,6 +255,10 @@
 		C2D683412179CE07005D7F08 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				C26F73852179F99300583181 /* ListViewController.swift */,
+				C26F73862179F99300583181 /* LoginViewController.swift */,
+				C26F73832179F99200583181 /* ProfileViewController.swift */,
+				C26F73842179F99200583181 /* SignupViewController.swift */,
 				C2D683422179CE1B005D7F08 /* AuthViewController.swift */,
 			);
 			path = Auth;
@@ -448,7 +442,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C20D112E1ECD5EAB0047EDD5 /* LaunchScreen.storyboard in Resources */,
-				C20D115D1ECD61A50047EDD5 /* ListTableViewCell.xib in Resources */,
 				C2D683452179D0DA005D7F08 /* Root.storyboard in Resources */,
 				C2D683472179D3E1005D7F08 /* Home.storyboard in Resources */,
 				C24E0A931ED912E300038FF1 /* Fabric.plist in Resources */,
@@ -587,23 +580,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2D683432179CE1B005D7F08 /* AuthViewController.swift in Sources */,
-				C20D115E1ECD61A50047EDD5 /* ListTableViewCell.swift in Sources */,
+				C26F738C2179F9A100583181 /* CustomButton.swift in Sources */,
 				C2D683562179D59D005D7F08 /* PostViewController.swift in Sources */,
 				C26F73822179F83900583181 /* UIImageExtension.swift in Sources */,
 				C2D683612179EE1C005D7F08 /* SplashViewController.swift in Sources */,
+				C26F738A2179F99300583181 /* LoginViewController.swift in Sources */,
 				C26F73802179F65B00583181 /* UIColorExtension.swift in Sources */,
-				C20D11591ECD61A50047EDD5 /* ProfileViewController.swift in Sources */,
 				C20D11601ECD61A50047EDD5 /* Utility.swift in Sources */,
+				C26F73872179F99300583181 /* ProfileViewController.swift in Sources */,
 				C2D683632179F5DD005D7F08 /* UIViewExtension.swift in Sources */,
 				C20D11261ECD5EAB0047EDD5 /* ViewController.swift in Sources */,
-				C20D115C1ECD61A50047EDD5 /* CustomButton.swift in Sources */,
 				C2D6835E2179ED70005D7F08 /* UIApplicationExtention.swift in Sources */,
-				C20D115A1ECD61A50047EDD5 /* SignupViewController.swift in Sources */,
+				C26F73882179F99300583181 /* SignupViewController.swift in Sources */,
 				C2D683542179D588005D7F08 /* MyPageViewController.swift in Sources */,
 				C20D11621ECD66EA0047EDD5 /* TestView.swift in Sources */,
-				C20D115B1ECD61A50047EDD5 /* LoginViewController.swift in Sources */,
+				C26F73892179F99300583181 /* ListViewController.swift in Sources */,
 				C2D683592179D65F005D7F08 /* NotificationViewController.swift in Sources */,
-				C20D115F1ECD61A50047EDD5 /* ListViewController.swift in Sources */,
 				C20D11241ECD5EAB0047EDD5 /* AppDelegate.swift in Sources */,
 				C2D683522179D570005D7F08 /* HomeViewController.swift in Sources */,
 			);
