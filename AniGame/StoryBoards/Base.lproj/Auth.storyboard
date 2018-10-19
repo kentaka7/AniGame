@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="K62-wY-j4T">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -143,7 +145,7 @@
         <!--Sign Up-->
         <scene sceneID="Onf-5y-BAM">
             <objects>
-                <viewController id="x3n-Kb-uqf" customClass="SignupViewController" customModule="AniGame" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpView" id="x3n-Kb-uqf" customClass="SignupViewController" customModule="AniGame" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iMH-r8-DSb"/>
                         <viewControllerLayoutGuide type="bottom" id="2mD-Oc-od2"/>
@@ -153,7 +155,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qGz-WG-FCx" customClass="CustomButton" customModule="AniGame" customModuleProvider="target">
-                                <rect key="frame" x="66" y="307" width="243" height="50"/>
+                                <rect key="frame" x="66" y="263" width="243" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="UGG-2e-ac2"/>
@@ -180,7 +182,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UPG-5e-U3o" customClass="CustomButton" customModule="AniGame" customModuleProvider="target">
-                                <rect key="frame" x="66" y="387" width="243" height="50"/>
+                                <rect key="frame" x="66" y="343" width="243" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="zgv-q6-UC4"/>
@@ -207,7 +209,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J1m-cJ-hFd">
-                                <rect key="frame" x="20" y="197" width="335" height="50"/>
+                                <rect key="frame" x="20" y="153" width="335" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="vnK-GM-6w7"/>
                                 </constraints>
@@ -227,7 +229,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y1D-Im-ioo">
-                                <rect key="frame" x="20" y="104" width="335" height="50"/>
+                                <rect key="frame" x="20" y="60" width="335" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="2Fu-IT-c0d"/>
                                 </constraints>
@@ -247,7 +249,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CXL-He-62A" customClass="CustomButton" customModule="AniGame" customModuleProvider="target">
-                                <rect key="frame" x="66" y="467" width="243" height="50"/>
+                                <rect key="frame" x="66" y="423" width="243" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="suT-c1-kmf"/>
@@ -268,7 +270,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wHA-05-SSK" customClass="CustomButton" customModule="AniGame" customModuleProvider="target">
-                                <rect key="frame" x="66" y="547" width="243" height="50"/>
+                                <rect key="frame" x="66" y="503" width="243" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="yVz-Qi-KeU"/>
@@ -342,7 +344,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4lc-Mo-9t9">
-                                <rect key="frame" x="36" y="234" width="303" height="50"/>
+                                <rect key="frame" x="36" y="190" width="303" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="nXV-4Y-E8G"/>
                                 </constraints>
@@ -362,7 +364,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NM6-1O-2Wj">
-                                <rect key="frame" x="36" y="344" width="303" height="50"/>
+                                <rect key="frame" x="36" y="300" width="303" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="g1i-6X-Jf3"/>
@@ -386,7 +388,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8M0-dX-CqQ">
-                                <rect key="frame" x="36" y="124" width="303" height="50"/>
+                                <rect key="frame" x="36" y="80" width="303" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Qju-fJ-K4B"/>
                                 </constraints>
@@ -436,20 +438,20 @@
         <!--Navigation Controller-->
         <scene sceneID="EQy-Ss-dh9">
             <objects>
-                <navigationController storyboardIdentifier="Nav" automaticallyAdjustsScrollViewInsets="NO" id="K62-wY-j4T" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="AuthNavi" automaticallyAdjustsScrollViewInsets="NO" id="K62-wY-j4T" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="yzM-SJ-rrf">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="x3n-Kb-uqf" kind="relationship" relationship="rootViewController" id="Vqs-hq-zco"/>
+                        <segue destination="xsi-d1-Kyg" kind="relationship" relationship="rootViewController" id="48a-hz-Pd1"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EX9-8f-eyC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1094" y="233"/>
+            <point key="canvasLocation" x="-1974" y="260"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="P8j-6s-okz">
@@ -478,7 +480,7 @@
                     <tabBarItem key="tabBarItem" title="記録" id="78J-Jd-udA"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Na7-gZ-m6v">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -497,7 +499,7 @@
                     <tabBarItem key="tabBarItem" title="プロフィール" id="RRP-EQ-eib"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="csv-TC-bcM">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -509,8 +511,88 @@
             </objects>
             <point key="canvasLocation" x="1230" y="1024"/>
         </scene>
+        <!--Auth View Controller-->
+        <scene sceneID="yUW-nk-GDN">
+            <objects>
+                <viewController storyboardIdentifier="AuthView" id="xsi-d1-Kyg" customClass="AuthViewController" customModule="AniGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AR9-aA-R6z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login" translatesAutoresizingMaskIntoConstraints="NO" id="EYb-pO-Ca5">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMR-O3-ki7" userLabel="Facebook login">
+                                <rect key="frame" x="39.5" y="458" width="296" height="62"/>
+                                <color key="backgroundColor" red="0.23529411759999999" green="0.35294117650000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="296" id="BPv-ea-tYp"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="62" id="TAL-Jk-Qgq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="imageEdgeInsets" minX="10" minY="14" maxX="34" maxY="14"/>
+                                <state key="normal" title="Facebookではじめる" image="fb_logo">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="tapOtherLogin:" destination="xsi-d1-Kyg" eventType="touchUpInside" id="CZU-Jj-3Om"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J4f-UQ-e7X" userLabel="Non login">
+                                <rect key="frame" x="118" y="540" width="138" height="30"/>
+                                <state key="normal" title="あとでログインする">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fji-M8-eFp">
+                                <rect key="frame" x="39" y="577" width="296" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="296" id="JNi-bD-CGi"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="ZUf-on-gvg"/>
+                                </constraints>
+                                <state key="normal" title="その他の方法でログイン">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ようこそ！東京へ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iOi-qz-6Ks">
+                                <rect key="frame" x="59" y="111" width="241" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fji-M8-eFp" firstAttribute="centerX" secondItem="AR9-aA-R6z" secondAttribute="centerX" id="4hb-Zz-gWR"/>
+                            <constraint firstItem="J4f-UQ-e7X" firstAttribute="top" secondItem="gMR-O3-ki7" secondAttribute="bottom" constant="20" id="E8d-h5-jDB"/>
+                            <constraint firstItem="EYb-pO-Ca5" firstAttribute="trailing" secondItem="jUb-ZU-sqS" secondAttribute="trailing" id="HMq-l9-70q"/>
+                            <constraint firstItem="EYb-pO-Ca5" firstAttribute="leading" secondItem="jUb-ZU-sqS" secondAttribute="leading" id="MYF-vv-Obc"/>
+                            <constraint firstItem="EYb-pO-Ca5" firstAttribute="bottom" secondItem="jUb-ZU-sqS" secondAttribute="bottom" id="ZmQ-3G-4sP"/>
+                            <constraint firstItem="J4f-UQ-e7X" firstAttribute="centerX" secondItem="AR9-aA-R6z" secondAttribute="centerX" id="eOX-fg-vmg"/>
+                            <constraint firstItem="EYb-pO-Ca5" firstAttribute="top" secondItem="AR9-aA-R6z" secondAttribute="top" id="kvU-Mt-RGG"/>
+                            <constraint firstItem="jUb-ZU-sqS" firstAttribute="bottom" secondItem="fji-M8-eFp" secondAttribute="bottom" constant="50" id="nAH-yp-exp"/>
+                            <constraint firstItem="fji-M8-eFp" firstAttribute="top" secondItem="J4f-UQ-e7X" secondAttribute="bottom" constant="7" id="u94-5t-s0d"/>
+                            <constraint firstItem="gMR-O3-ki7" firstAttribute="centerX" secondItem="AR9-aA-R6z" secondAttribute="centerX" id="wC2-8c-glq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jUb-ZU-sqS"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="yRP-Qu-YaI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nkQ-JI-X0N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1046" y="260"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="fb_logo" width="16" height="16"/>
+        <image name="login" width="1080" height="1920"/>
         <image name="noimage1" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
